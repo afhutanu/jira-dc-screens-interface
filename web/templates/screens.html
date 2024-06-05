@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screens</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+</head>
+<body class="container mt-5">
+    <h2>Screens</h2>
+
+    <table id="myTable" class="hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for screen in screens %}
+            <tr class="screen-row" data-screen-id="{{ screen.id }}" data-screen-name="{{ screen.name }}">
+                <td>{{ screen.name }}</td>
+                <td>{{ screen.id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Name</td>
+                <td>ID</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div id="form_area" class="mt-4"></div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/screens.js') }}"></script>
+</body>
+</html>

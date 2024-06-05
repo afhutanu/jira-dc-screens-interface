@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Please Login to instance-name</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="static/js/home.js"></script>
+</head>
+<body class="container mt-5">
+    <h2>Select Authentication Type</h2>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="auth_type" id="basic" value="basic" onchange="updateForm()" checked>
+        <label class="form-check-label" for="basic">Basic Auth</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="auth_type" id="bearer" value="bearer" onchange="updateForm()">
+        <label class="form-check-label" for="bearer">Bearer Token</label>
+    </div>
+    <div id="form_container" class="mt-4"></div>
+
+    <form id="basicForm" action="/login" method="post" style="display: block">
+        <input type="hidden" name="auth_type" value="basic">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+    <form id="bearerForm" action="/login" method="post" style="display: none">
+        <input type="hidden" name="auth_type" value="bearer">
+        <div class="form-group">
+            <label for="token">Bearer Token:</label>
+            <input type="text" class="form-control" id="token" name="token">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    
+</body>
+</html>
